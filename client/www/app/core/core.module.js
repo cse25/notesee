@@ -2,5 +2,5 @@
   'use strict'
 
   angular
-    .module('notesee.core', ['ionic'])
+    .module('notesee.core', ['ionic', 'ngCordova'])
 })()
