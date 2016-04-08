@@ -54,4 +54,5 @@
     <splash src="resources/ios/splash/Default~iphone.png" height="480" width="320"/>
   </platform>
   <plugin name="cordova-plugin-camera" spec="~2.1.1" />
+  <plugin name="cordova-plugin-x-socialsharing" spec="https://github.com/EddyVerbruggen/SocialSharing-PhoneGap-Plugin.git" />
 </widget>
