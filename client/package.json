@@ -34,5 +34,11 @@
       "version": "",
       "locator": "ios"
     }
-  ]
+  ],
+  "standard": {
+    "globals": [
+      "angular",
+      "Camera"
+    ]
+}
 }
