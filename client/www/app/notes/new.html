@@ -1,0 +1,43 @@
+<!-- Modal Wrapper -->
+<ion-modal-view>
+
+  <!-- Header Bar -->
+  <ion-header-bar class="bar-assertive">
+    <h1 class="title">New Note</h1>
+    <button class="button button-clear button-primary" ng-click="notes.modal.remove(); notes.newPhoto = notes.originalPhoto">Cancel</button>
+  </ion-header-bar>
+
+  <!-- Content Wrapper -->
+  <ion-content>
+
+    <!-- Meta Information -->
+    <div class="list card">
+      <div class="item item-avatar">
+        <img ng-src="">
+        <h2>merktassel</h2>
+        <p>now</p>
+      </div>
+
+      <!-- Scanned Document -->
+      <div ng-if="notes.newPhoto" class="item item-image">
+        <img ng-src="data:image/jpeg;base64,{{notes.newPhoto}}">
+      </div>
+
+      <!-- Tags -->
+      <p class="item">
+        <input type="text" placeholder="tag1, tag2, tag3">
+      </p>
+    </div>
+
+    <!-- Photo Buttons -->
+    <div class="padding button-bar bar-stable">
+      <a class="button" ng-click="notes.takePhoto()">New Photo</a>
+      <a class="button" ng-click="notes.selectPhoto()">Existing Photo</a>
+    </div>
+
+    <!-- Save Button -->
+    <div class="padding">
+      <button class="button button-block button-assertive" ng-click="notes.save()">Save</button>
+    </div>
+  </ion-content>
+</ion-modal-view>
