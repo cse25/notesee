@@ -5,7 +5,7 @@
     .module('notesee.classrooms')
     .controller('ClassroomsController', ClassroomsController)
 
-  function ClassroomsController ($state, Rooms) {
+  function ClassroomsController ($cordovaSocialSharing, $ionicModal, $scope, $state, Rooms) {
     var vm = this
 
     vm.rooms = Rooms
@@ -15,7 +15,10 @@
     vm.view = view
 
     function create () {
-      console.log('should show a form for creating a room')
+      var roomName = window.prompt('What would you like to name your classroom?')
+
+      $cordovaSocialSharing
+        .share('Mark has invited you to join the ' + roomName + ' classroom! Enter 1234 in the app to collaborate on notes.', roomName + ' Classroom Invitation', null, 'http://example.com')
     }
 
     function leave () {
