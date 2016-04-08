@@ -1,3 +1,4 @@
+var fs = require('fs')
 var mysql = require('mysql')
 var db = mysql.createConnection({
   host: 'mysqlcluster16.registeredsite.com',

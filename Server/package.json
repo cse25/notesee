@@ -1,8 +1,8 @@
 {
-  "name": "notesee",
+  "name": "Server",
   "version": "1.0.0",
   "description": "",
-  "main": "server.js",
+  "main": "db.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node server.js"
@@ -13,7 +13,7 @@
     "body-parser": "^1.15.0",
     "cors": "^2.7.1",
     "express": "^4.13.4",
-    "lodash": "^4.8.2",
-    "mysql": "^2.10.2",
+    "file-system": "^2.2.1",
+    "mysql": "^2.10.2"
   }
 }
