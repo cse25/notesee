@@ -21,10 +21,12 @@ db.on('error', function(){
 
 fs.readFile(__dirname + '/schema.sql', 'utf-8', function(err, data){
   var commands = data.split(";");
+  commands.pop();
   commands.forEach(function(command){
-    console.log(command);
     db.query(command, function(err, results){
-      if (err) console.error(err);
+      if (err){
+        console.error(err);
+      }
     })
   })
 })
