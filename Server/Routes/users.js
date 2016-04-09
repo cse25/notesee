@@ -4,7 +4,7 @@ var db = require('../db.js')
 
 router.get('/', function(req, res) {
 	// send back all registered users
-	
+	res.JSON({name: 'Bob'});
 })
 
 
