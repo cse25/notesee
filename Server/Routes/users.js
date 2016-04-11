@@ -11,20 +11,32 @@ var url = require('url')
 
 // grab user information by specifying username
 // ex. /users/user/danny => grab all user information for Danny from users table
-router.get('/user/:name', function (req, res) {
-	var user = req.params.name;
-	db.query('SELECT `full_name`, `username`, `createdAt` FROM `USERS` WHERE `username` = ?;',
-	 [user], 
+router.get('/user/:id', function (req, res) {
+	var id = req.params.id;
+	db.query('SELECT `full_name`, `username`, `createdAt` FROM `USERS` WHERE `id` = ?;',
+	 [id], 
 	 function (err, rows) {
 		if (err) {
 			console.error(err)
-			res.sendStatus(500)
+			res.status(404).json({success: false})
 		} else {
 			res.json(rows)
 		}
 	})
 })
 
-
+router.get('/user/:id/classrooms', function (req, res) {
+	var id = req.params.id;
+	db.query('SELECT `classroom_id` FROM `CLASS-USERS-JOIN` WHERE `user_id` = ?;',
+	 [id],
+	 function (err, rows) {
+		if (err) {
+			console.error(err) 
+			res.status(404).json({success: false})
+		} else {
+			res.status(200).json(rows)
+		}
+	})
+})
 
 module.exports = router
