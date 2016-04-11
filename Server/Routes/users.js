@@ -1,7 +1,6 @@
 var express = require('express')
 var router = express.Router()
 var db = require('../db.js')
-var url = require('url')
 
 // users/ -> return all users and their data
 // users/:id -> return user information (name, data joined, etcetera)
