@@ -9,6 +9,7 @@ var db = require('./db.js')
 var users = require('./Routes/users')
 var landing = require('./Routes/landing')
 var classrooms = require('./Routes/classrooms')
+var notes = require('./Routes/notes')
 
 app.use(cors())
 app.use(bodyParser.urlencoded({extended: true}))
@@ -19,6 +20,7 @@ app.use(morgan('dev'));
 app.use('/api/users/', users)
 app.use('/api/landing/', landing)
 app.use('/api/classrooms/', classrooms)
+app.use('/api/classrooms/', notes)
 
 
 var port = process.env.PORT || 8080
