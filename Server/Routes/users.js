@@ -1,7 +1,7 @@
 var express = require('express')
 var router = express.Router()
 var db = require('../db.js')
-
+var url = require('url')
 
 // users/ -> return all users and their data
 // users/:id -> return user information (name, data joined, etcetera)
@@ -10,9 +10,12 @@ var db = require('../db.js')
 
 
 // grab user information
-router.get('/id:', function(req, res) {
-	var user = req.user.id
-	db.query('SELECT `full_name`, `username`, `createdAt` FROM `USERS` WHERE `id` = ?;', [user], function (err, rows) {
+router.get('/user/kan', function (req, res) {
+	var path = req.route.path;
+	var pathArr = path.split('/');
+	var user = pathArr[2];
+	console.log('pathArr: ', pathArr);
+	db.query('SELECT `full_name`, `username`, `createdAt` FROM `USERS` WHERE `username` = ?;', [user], function (err, rows) {
 		if (err) {
 			console.error(err)
 			res.sendStatus(500)
@@ -21,10 +24,6 @@ router.get('/id:', function(req, res) {
 		}
 	})
 })
-
-
-
-
 
 
 
