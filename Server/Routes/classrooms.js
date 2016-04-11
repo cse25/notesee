@@ -8,8 +8,8 @@ var db = require('../db.js')
 // classrooms/:id/notes -> return all notes in that classroom
 // classrooms/:id/users -> return all users in that classroom
 
-// return all classrooms
-router.get('/classrooms', function (req, res) {
+// return ALL classrooms
+router.get('/', function (req, res) {
 	db.query('SELECT `name` FROM `CLASSROOMS`', function (err, rows) {
 		if(err) {
 			console.error(err)
@@ -24,11 +24,11 @@ router.get('/classrooms', function (req, res) {
 // classrooms/:id/users --> adds user in that classroom
 // classrooms/ --> create a classroom
 
-// register classroom
-router.post('/classrooms', function (req, res) {
-	var classname = req.body.classroom.name
-	db.query('INSERT INTO `CLASSROOMS` SET `name` = ?;' 
-		[name], 
+// create a classroom
+router.post('/', function (req, res) {
+	var classname = req.body.classroom.name;
+	db.query('INSERT INTO `CLASSROOMS` SET `name` = ?;', 
+		[classname], 
 		function (err, rows) {
 			if(err) {
 				console.error(err)
