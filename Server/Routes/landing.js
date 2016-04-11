@@ -11,9 +11,9 @@ router.post('/register', function (req, res) {
 		function (err, rows) {
 			if (err) {
 				console.error(err)
-				res.status(500)
+				res.status(500).json({success: false})
 			} else {
-				res.status(201).json({success: true});
+				res.status(201).json({success: true})
 			}
 		})
 })
