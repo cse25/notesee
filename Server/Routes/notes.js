@@ -2,7 +2,6 @@ var express = require('express')
 var router = express.Router()
 var db = require('../db.js')
 
-
 router.post('/classroom/:id/upload', function (req, res) {
 	var id = req.params.id;
 	var photo = req.body.photo;  //string of binary
@@ -29,7 +28,16 @@ router.post('/classroom/:id/upload', function (req, res) {
 					  	}
 					  })
 				}
-
 })
 
 module.exports = router
+
+//notesee.bucket.s3-website-us-west-1.amazonaws.com
+
+// You should store the Object Key in DB. You specify a key 
+// while storing the object in S3, and then go ahead and store 
+// this in the DB. From this key the download URL can be constructed.
+
+// Object Key and Metadata - Amazon Simple Storage Service : http:
+// docs.aws.amazon.com/AmazonS3/latest/dev/UsingMetadata.html
+
